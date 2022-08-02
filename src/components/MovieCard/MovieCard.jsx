@@ -24,6 +24,7 @@ export const MovieCard = () => {
           <img
             width="300"
             src={'https://image.tmdb.org/t/p/w500/' + movie.poster_path}
+            alt={movie.original_title}
           />
           <div>
             <h2>{movie.original_title}</h2>

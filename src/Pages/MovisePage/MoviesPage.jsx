@@ -9,8 +9,6 @@ export const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [serchParam, setSerchParam] = useSearchParams();
   const serchParamObj = Object.fromEntries([...serchParam]);
-  const test = [...serchParam];
-  console.log(test);
 
   useEffect(() => {
     if (serchParamObj.query) {
