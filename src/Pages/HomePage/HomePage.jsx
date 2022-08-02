@@ -7,7 +7,7 @@ export const HomePage = () => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     trendingList().then(({ results }) => setMovies(results));
-  }, [movies]);
+  }, []);
 
   return (
     <section className={s.section}>

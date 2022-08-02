@@ -1,6 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 import { HomePage } from '../Pages/HomePage/HomePage';
+import { MoviesPage } from '../Pages/MovisePage/MoviesPage';
+import { AboutMoviePage } from '../Pages/AboutMoviePage/AboutMoviePage';
+import { CastMovie } from '../components/CastMovie/CastMovie';
+import { ReviewsMovie } from '../components/ReviewsMovie/ReviewsMovie';
 // import {
 //   trendingList,
 //   searchMovie,
@@ -21,11 +25,10 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="/movies" element={'MoviesPage'}>
-            <Route path=":id" element={'MovieByIdPage'}>
-              <Route path="cast" element={'MovieCast'} />
-              <Route path="reviews" element={'MovieReviews'} />
-            </Route>
+          <Route path="/movies" element={<MoviesPage />}></Route>
+          <Route path="/movies/:movieId" element={<AboutMoviePage />}>
+            <Route path="cast" element={<CastMovie />} />
+            <Route path="reviews" element={<ReviewsMovie />} />
           </Route>
         </Route>
       </Routes>
