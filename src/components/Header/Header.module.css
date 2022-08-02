@@ -1,0 +1,22 @@
+.headerContainer {
+  padding: 20px 15%;
+  box-shadow: 0px 1px 10px 0px rgba(30, 15, 219, 0.15);
+}
+.navList {
+  display: flex;
+  gap: 20px;
+}
+
+.navItem {
+}
+
+.navLink {
+  color: slategrey;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.active {
+  color: black;
+  border-bottom: 2px solid black;
+}
