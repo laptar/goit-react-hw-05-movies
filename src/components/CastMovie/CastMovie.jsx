@@ -17,6 +17,7 @@ export const CastMovie = () => {
             <img
               width="100"
               src={'https://image.tmdb.org/t/p/w500/' + profile_path}
+              alt={name}
             />
             <p>{name}</p>
             <p>{character}</p>
