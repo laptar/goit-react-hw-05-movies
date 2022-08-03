@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { getMovieDetails } from '../../fetchApi';
-import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
+import { useParams, NavLink, useNavigate, useLocation } from 'react-router-dom';
+import s from './MovieCard.module.css';
 
 export const MovieCard = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
-  console.log(location);
   const navigate = useNavigate();
+
   useEffect(() => {
     getMovieDetails(movieId).then(res => setMovie(res));
   }, [movieId]);
@@ -15,12 +16,13 @@ export const MovieCard = () => {
     return (
       <section>
         <button
+          className={s.btn}
           type="button"
           onClick={() => navigate(location?.state?.from ?? '/')}
         >
           Go back
         </button>
-        <div>
+        <div className={s.card}>
           <img
             width="300"
             src={'https://image.tmdb.org/t/p/w500/' + movie.poster_path}
@@ -30,9 +32,23 @@ export const MovieCard = () => {
             <h2>{movie.original_title}</h2>
           </div>
         </div>
-        <div>
-          <Link to={`/movies/${movieId}/cast`}>Cast</Link>
-          <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
+        <div className={s.listLink}>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? `${s.navLink} ${s.active}` : s.navLink
+            }
+            to={`/movies/${movieId}/cast`}
+          >
+            Cast
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? `${s.navLink} ${s.active}` : s.navLink
+            }
+            to={`/movies/${movieId}/reviews`}
+          >
+            Reviews
+          </NavLink>
         </div>
       </section>
     );

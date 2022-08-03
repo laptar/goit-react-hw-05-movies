@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReviews } from '../../fetchApi';
+
 export const ReviewsMovie = () => {
   const [reviews, setReviews] = useState(null);
   const { movieId } = useParams();
