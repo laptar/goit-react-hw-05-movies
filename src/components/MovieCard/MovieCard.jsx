@@ -8,6 +8,7 @@ export const MovieCard = () => {
   const [movie, setMovie] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
+  console.log(location);
 
   useEffect(() => {
     getMovieDetails(movieId).then(res => setMovie(res));
@@ -34,6 +35,7 @@ export const MovieCard = () => {
         </div>
         <div className={s.listLink}>
           <NavLink
+            state={location.state}
             className={({ isActive }) =>
               isActive ? `${s.navLink} ${s.active}` : s.navLink
             }
@@ -42,6 +44,7 @@ export const MovieCard = () => {
             Cast
           </NavLink>
           <NavLink
+            state={location.state}
             className={({ isActive }) =>
               isActive ? `${s.navLink} ${s.active}` : s.navLink
             }

@@ -9,7 +9,6 @@ export const CastMovie = () => {
   useEffect(() => {
     getMovieCredits(movieId).then(res => setCast(res));
   }, [movieId]);
-  console.log(cast);
   if (cast) {
     return (
       <ul>

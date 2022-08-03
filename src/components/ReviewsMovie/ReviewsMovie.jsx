@@ -9,7 +9,6 @@ export const ReviewsMovie = () => {
   useEffect(() => {
     getMovieReviews(movieId).then(res => setReviews(res.results));
   }, [movieId]);
-  console.log(reviews);
   if (reviews) {
     return (
       <ul>
