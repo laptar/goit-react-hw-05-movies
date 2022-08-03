@@ -42,5 +42,4 @@ export const Serchbar = ({ onSubmit }) => {
 
 Serchbar.propTypes = {
   onSubmit: PropTypes.func,
-  onChangePerPage: PropTypes.func,
 };
