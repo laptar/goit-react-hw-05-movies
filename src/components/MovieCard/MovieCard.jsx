@@ -8,7 +8,7 @@ export const MovieCard = () => {
   const [movie, setMovie] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
+  console.log(location.state.pathname + location.state.search);
 
   useEffect(() => {
     getMovieDetails(movieId).then(res => setMovie(res));
@@ -19,7 +19,9 @@ export const MovieCard = () => {
         <button
           className={s.btn}
           type="button"
-          onClick={() => navigate(location?.state?.from ?? '/')}
+          onClick={() =>
+            navigate(location.state.pathname + location.state.search ?? '/')
+          }
         >
           Go back
         </button>
@@ -39,7 +41,7 @@ export const MovieCard = () => {
             className={({ isActive }) =>
               isActive ? `${s.navLink} ${s.active}` : s.navLink
             }
-            to={`/movies/${movieId}/cast`}
+            to={`cast`}
           >
             Cast
           </NavLink>
@@ -48,7 +50,7 @@ export const MovieCard = () => {
             className={({ isActive }) =>
               isActive ? `${s.navLink} ${s.active}` : s.navLink
             }
-            to={`/movies/${movieId}/reviews`}
+            to={`reviews`}
           >
             Reviews
           </NavLink>

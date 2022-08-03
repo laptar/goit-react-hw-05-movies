@@ -56,6 +56,9 @@ export const App = () => {
             />
           </Route>
         </Route>
+        <Route path="*" element={<Layout />}>
+          <Route index element={'Test'} />
+        </Route>
       </Routes>
     </>
   );

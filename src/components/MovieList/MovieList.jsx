@@ -8,10 +8,7 @@ export const MovieList = ({ movies }) => {
     <ul>
       {movies.map(({ id, title }) => (
         <li key={id}>
-          <Link
-            state={{ from: location.pathname + location.search }}
-            to={`/movies/${id}`}
-          >
+          <Link state={location} to={`/movies/${id}`}>
             {title}
           </Link>
         </li>
